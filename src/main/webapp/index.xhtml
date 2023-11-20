@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link href="index.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+    function validarFormulario() {
+      var usuario = document.getElementById('usuario').value;
+      var contrasena = document.getElementById('contrasena').value;
+
+      if (usuario === '' || contrasena === '') {
+        alert('Por favor ingresa un usuario y una contraseña');
+        return false; // Evita la redirección si la validación falla
+      } else {
+        // Continúa con la redirección si la validación es exitosa
+        window.location.href = 'iniciar.html';
+        return true;
+      }
+    }
+  </script>
+  <style type="text/css">
+   
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+      width: 300px;
+      padding: 16px;
+      background-color: #f1f1f1;
+      margin: 0 auto;
+      margin-top: 100px;
+      border-radius: 4px;
+    }
+
+    .login-container input[type=text],
+    .login-container input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 10px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    .login-container .btn {
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      border: 1px solid transparent;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    .login-container .btn4 {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .login-container .btn4:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+  </style>
+  
+  
+</head>
+<body>
+
+  <h2 style="text-align:center;">EntreCOL+</h2>
+
+  <div class="login-container">
+    <label for="usuario"><b>Usuario</b></label>
+    <input type="text" placeholder="Ingresa Usuario" id="usuario" required="required" />
+
+    <label for="contrasena"><b>Contraseña</b></label>
+    <input type="password" placeholder="Ingresa Contraseña" id="contrasena" required="required" />
+
+    <a href="opciones.xhtml" onclick="return validarFormulario()" class="btn btn4">Iniciar</a>
+
+  </div>
+
+</body>
+
+</html>

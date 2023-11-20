@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xml:lang="es" lang="es">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Información del Empleado</title>
+
+    <style type="text/css">
+        @charset "ISO-8859-1";
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #cuadro {
+            width: 70%;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</h:head>
+<h:body>
+
+    <h:form id="cuadro">
+        <h:panelGrid columns="3" styleClass="info-table">
+ <h:outputLabel for="codigoInput" value="Código de operación"/>
+    <h:inputText id="codigoInput" value="#{empleadoBean.codigo}"/>
+</h:panelGrid>
+    <h:commandButton value="Ejecutar Método" action="#{empleadoBean.reportePersonal}"/>
+    <h:panelGrid columns="2" styleClass="info-table">
+    
+        <f:facet name="header">
+            <h:outputText value="Información del Empleado" style="font-weight:bold;"/>
+        </f:facet>
+        <h:outputLabel for="fullName" value="Nombre completo + Código Personal"/>
+        <h:outputText id="fullName" value="#{empleadoBean.nombre_empleado} - #{empleadoBean.codigo}"/>
+        
+        <h:outputLabel for="dependency" value="Dependencia"/>
+        <h:outputText id="dependency" value="#{empleadoBean.dependencia}"/>
+        
+        <h:outputLabel for="position" value="Cargo"/>
+        <h:outputText id="position" value="#{empleadoBean.cargo}"/>
+        
+        <h:outputLabel for="admissionDate" value="Fecha de ingreso"/>
+        <h:outputText id="admissionDate" value="#{empleadoBean.fecha_ingreso}"/>
+        
+        <h:outputLabel for="eps" value="EPS"/>
+        <h:outputText id="eps" value="#{empleadoBean.eps}"/>
+        
+        <h:outputLabel for="pensionContribution" value="Aporte Pensión"/>
+        <h:outputText id="pensionContribution" value="#{empleadoBean.pension}">
+            <f:convertNumber currencySymbol="$" type="currency"/>
+        </h:outputText>
+        
+        <h:outputLabel for="salary" value="Salario"/>
+        <h:outputText id="salary" value="#{empleadoBean.sueldo}">
+           <h:commandLink action="opciones.xhtml" styleClass="btn btn4">Regresar</h:commandLink>
+            <f:convertNumber currencySymbol="$" type="currency"/>
+            
+        </h:outputText>
+    </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>
